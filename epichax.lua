@@ -8,6 +8,7 @@ local ChatTroll = Instance.new("TextButton")
 local StatChanger = Instance.new("TextButton")
 local Pokeballhack = Instance.new("TextButton")
 local Chatlvl100 = Instance.new("TextButton")
+local Autosave = Instance.new("TextButton")
 local ChatHackFrame = Instance.new("Frame")
 local Title_2 = Instance.new("TextLabel")
 local chatcolor = Instance.new("TextLabel")
@@ -65,7 +66,7 @@ ChatTroll.Name = "ChatTroll"
 ChatTroll.Parent = MainFrame
 ChatTroll.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 ChatTroll.BorderColor3 = Color3.new(0, 0, 0)
-ChatTroll.Position = UDim2.new(0, 0, 0.645021617, 0)
+ChatTroll.Position = UDim2.new(0, 0, 0.424242377, 0)
 ChatTroll.Size = UDim2.new(0, 211, 0, 41)
 ChatTroll.Font = Enum.Font.Code
 ChatTroll.Text = "Chat Troll UI"
@@ -78,7 +79,7 @@ StatChanger.Name = "StatChanger"
 StatChanger.Parent = MainFrame
 StatChanger.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 StatChanger.BorderColor3 = Color3.new(0, 0, 0)
-StatChanger.Position = UDim2.new(0.5, 0, 0.645021617, 0)
+StatChanger.Position = UDim2.new(0.5, 0, 0.424242377, 0)
 StatChanger.Size = UDim2.new(0, 211, 0, 41)
 StatChanger.Font = Enum.Font.Code
 StatChanger.Text = "Pokemon & Move Stat Changer"
@@ -91,7 +92,7 @@ Pokeballhack.Name = "Pokeballhack"
 Pokeballhack.Parent = MainFrame
 Pokeballhack.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 Pokeballhack.BorderColor3 = Color3.new(0, 0, 0)
-Pokeballhack.Position = UDim2.new(0, 0, 0.465000033, 0)
+Pokeballhack.Position = UDim2.new(0, 0, 0.248549819, 0)
 Pokeballhack.Size = UDim2.new(0, 211, 0, 41)
 Pokeballhack.Font = Enum.Font.Code
 Pokeballhack.Text = "Make Pokeballs act like Masterballs lol"
@@ -104,7 +105,7 @@ Chatlvl100.Name = "Chatlvl100"
 Chatlvl100.Parent = MainFrame
 Chatlvl100.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 Chatlvl100.BorderColor3 = Color3.new(0, 0, 0)
-Chatlvl100.Position = UDim2.new(0.5, 0, 0.465000033, 0)
+Chatlvl100.Position = UDim2.new(0.5, 0, 0.248549789, 0)
 Chatlvl100.Size = UDim2.new(0, 211, 0, 41)
 Chatlvl100.Font = Enum.Font.Code
 Chatlvl100.Text = "Lvl 100 Chat Hack"
@@ -112,6 +113,19 @@ Chatlvl100.TextColor3 = Color3.new(0, 0, 0.498039)
 Chatlvl100.TextScaled = true
 Chatlvl100.TextSize = 14
 Chatlvl100.TextWrapped = true
+
+Autosave.Name = "Autosave"
+Autosave.Parent = MainFrame
+Autosave.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+Autosave.BorderColor3 = Color3.new(0, 0, 0)
+Autosave.Position = UDim2.new(0, 0, 0.601731598, 0)
+Autosave.Size = UDim2.new(0, 422, 0, 41)
+Autosave.Font = Enum.Font.Code
+Autosave.Text = "Autosave enabled:"
+Autosave.TextColor3 = Color3.new(0, 0, 0.498039)
+Autosave.TextScaled = true
+Autosave.TextSize = 14
+Autosave.TextWrapped = true
 
 ChatHackFrame.Name = "ChatHackFrame"
 ChatHackFrame.Parent = PokemonHaxlol
@@ -507,7 +521,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_GJRJ73_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_WAGG83_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -520,7 +534,13 @@ function SCRIPT_GJRJ73_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	local StatChangerUI = script.Parent.Stat
 	local MainFrame = script.Parent.MainFrame
 	local autodetect = false
+	local autosave = false
 	local chatColor = Color3.fromRGB(255,255,255)
+	game.RunService.RenderStepped:connect(function()
+	if autosave then
+	game.ReplicatedStorage.REvents.Internal.Save:InvokeServer()
+	end
+	end)
 	function applycolor()
 	chatui.Red.PlaceholderColor3 = chatColor
 	chatui.Red.TextColor3 = chatColor
@@ -574,11 +594,10 @@ function SCRIPT_GJRJ73_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	chatui.autodetectplayers.MouseButton1Click:connect(function()
 	if autodetect then
 	autodetect = false
-	chatui.autodetectplayers.Text = buttontext.."false"
 	else
 	autodetect = true
-	chatui.autodetectplayers.Text = buttontext.."true"
 	end
+	chatui.autodetectplayers.Text = buttontext..tostring(autodetect)
 	end)
 	Changed(chatui.prefix, "Text", function(txt,prev,button)
 	if autodetect then
@@ -641,6 +660,16 @@ function SCRIPT_GJRJ73_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	for i,v in pairs(game.Players:GetPlayers()) do haxpokemon(v) end
 	game.Players.PlayerAdded:connect(haxpokemon)
 	end)
+	local savetext = MainFrame.Autosave.Text.." "
+	MainFrame.Autosave.Text = savetext..tostring(autosave)
+	MainFrame.Autosave.MouseButton1Click:connect(function()
+	if autosave then
+	autosave = false
+	else
+	autosave = true
+	end
+	MainFrame.Autosave.Text = savetext..tostring(autosave)
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_GJRJ73_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_WAGG83_FAKESCRIPT))
