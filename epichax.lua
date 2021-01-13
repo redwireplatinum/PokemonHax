@@ -507,7 +507,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_ZDSF68_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_GJRJ73_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -594,7 +594,11 @@ function SCRIPT_ZDSF68_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end
 	end)
 	chatui.postmessage.MouseButton1Click:connect(function()
+	if chatui.prefix.Text ~= "" then
+	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("["..chatui.prefix.Text.."]: "..chatui.message.Text, chatColor)
+	else
 	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer(chatui.message.Text, chatColor)
+	end
 	end)
 	StatChangerUI.ChangePokemon.MouseButton1Click:connect(function()
 	local pokemonname = StatChangerUI.PokemonName.Text
@@ -639,4 +643,4 @@ function SCRIPT_ZDSF68_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_ZDSF68_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_GJRJ73_FAKESCRIPT))
