@@ -8,7 +8,6 @@ local ChatTroll = Instance.new("TextButton")
 local StatChanger = Instance.new("TextButton")
 local Pokeballhack = Instance.new("TextButton")
 local Chatlvl100 = Instance.new("TextButton")
-local Autosave = Instance.new("TextButton")
 local ChatHackFrame = Instance.new("Frame")
 local Title_2 = Instance.new("TextLabel")
 local chatcolor = Instance.new("TextLabel")
@@ -113,19 +112,6 @@ Chatlvl100.TextColor3 = Color3.new(0, 0, 0.498039)
 Chatlvl100.TextScaled = true
 Chatlvl100.TextSize = 14
 Chatlvl100.TextWrapped = true
-
-Autosave.Name = "Autosave"
-Autosave.Parent = MainFrame
-Autosave.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
-Autosave.BorderColor3 = Color3.new(0, 0, 0)
-Autosave.Position = UDim2.new(0, 0, 0.601731598, 0)
-Autosave.Size = UDim2.new(0, 422, 0, 41)
-Autosave.Font = Enum.Font.Code
-Autosave.Text = "Autosave enabled:"
-Autosave.TextColor3 = Color3.new(0, 0, 0.498039)
-Autosave.TextScaled = true
-Autosave.TextSize = 14
-Autosave.TextWrapped = true
 
 ChatHackFrame.Name = "ChatHackFrame"
 ChatHackFrame.Parent = PokemonHaxlol
@@ -521,7 +507,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_WAGG83_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_JREP77_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -534,13 +520,7 @@ function SCRIPT_WAGG83_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	local StatChangerUI = script.Parent.Stat
 	local MainFrame = script.Parent.MainFrame
 	local autodetect = false
-	local autosave = false
 	local chatColor = Color3.fromRGB(255,255,255)
-	game.RunService.RenderStepped:connect(function()
-	if autosave then
-	game.ReplicatedStorage.REvents.Internal.Save:InvokeServer()
-	end
-	end)
 	function applycolor()
 	chatui.Red.PlaceholderColor3 = chatColor
 	chatui.Red.TextColor3 = chatColor
@@ -660,16 +640,6 @@ function SCRIPT_WAGG83_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	for i,v in pairs(game.Players:GetPlayers()) do haxpokemon(v) end
 	game.Players.PlayerAdded:connect(haxpokemon)
 	end)
-	local savetext = MainFrame.Autosave.Text.." "
-	MainFrame.Autosave.Text = savetext..tostring(autosave)
-	MainFrame.Autosave.MouseButton1Click:connect(function()
-	if autosave then
-	autosave = false
-	else
-	autosave = true
-	end
-	MainFrame.Autosave.Text = savetext..tostring(autosave)
-	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_WAGG83_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_JREP77_FAKESCRIPT))
