@@ -521,7 +521,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_YHME81_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_FJHI71_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -609,9 +609,9 @@ function SCRIPT_YHME81_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end)
 	chatui.postmessage.MouseButton1Click:connect(function()
 	if chatui.prefix.Text ~= "" then
-	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("["..chatui.prefix.Text.."]: "..chatui.message.Text, chatColor)
+	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("has beaten\n\n["..chatui.prefix.Text.."]: "..chatui.message.Text, chatColor)
 	else
-	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer(chatui.message.Text, chatColor)
+	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("has beaten\n\n"..chatui.message.Text, chatColor)
 	end
 	end)
 	StatChangerUI.ChangePokemon.MouseButton1Click:connect(function()
@@ -637,7 +637,7 @@ function SCRIPT_YHME81_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	MainFrame.ChatEXPHaxx.MouseButton1Click:connect(function()
 	if not exphackenabled then
 	exphackenabled = true
-	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("Attention: A very sexc exploiter is here and is granting you access to hax your pokemons EXP. To do so you say '!exp hack [pokemon name]' WITHOUT brackets or quotes in chat. (For all pokemon, do !exp hack all)\nOnce you do that, kill another pokemon and let the magic begin.\nALSO: This cannot be undone + This supports shortened names ('pikachu' can be written as 'pika').", Color3.new(1,1,1))
+	game.ReplicatedStorage.REvents.Internal.wouoz:FireServer("has beaten\n\nAttention: A very sexc exploiter is here and is granting you access to hax your pokemons EXP. To do so you say '!exp hack [pokemon name]' WITHOUT brackets or quotes in chat. (For all pokemon, do !exp hack all)\nOnce you do that, kill another pokemon and let the magic begin.\nALSO: This cannot be undone + This supports shortened names ('pikachu' can be written as 'pika').", Color3.new(1,1,1))
 	local function haxpokemon(plr)
 	plr.Chatted:connect(function(msg)
 	if msg:lower():find("!exp hack") and not msg:lower() ~= "!exp hack all" then
@@ -667,6 +667,10 @@ function SCRIPT_YHME81_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end
 	end)
 	end)
+	game.StarterGui:SetCore("SendNotification", {
+	Title = "Chat troll";
+	Text = "I have to add 'has beaten' just for the text to show on chat, sorry lmao";
+	})
 
 end
-coroutine.resume(coroutine.create(SCRIPT_YHME81_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_FJHI71_FAKESCRIPT))
