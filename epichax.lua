@@ -8,6 +8,7 @@ local ChatTroll = Instance.new("TextButton")
 local StatChanger = Instance.new("TextButton")
 local Pokeballhack = Instance.new("TextButton")
 local ChatEXPHaxx = Instance.new("TextButton")
+local RemoveSaveCooldown = Instance.new("TextButton")
 local ChatHackFrame = Instance.new("Frame")
 local Title_2 = Instance.new("TextLabel")
 local chatcolor = Instance.new("TextLabel")
@@ -53,7 +54,7 @@ Title.Name = "Title"
 Title.Parent = MainFrame
 Title.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 Title.BorderColor3 = Color3.new(0, 0, 0)
-Title.Size = UDim2.new(0, 423, 0, 58)
+Title.Size = UDim2.new(0, 423, 0, 57)
 Title.Font = Enum.Font.Code
 Title.Text = "Different game, same terrible anti-cheat lmao"
 Title.TextColor3 = Color3.new(1, 1, 1)
@@ -112,6 +113,19 @@ ChatEXPHaxx.TextColor3 = Color3.new(1, 1, 1)
 ChatEXPHaxx.TextScaled = true
 ChatEXPHaxx.TextSize = 14
 ChatEXPHaxx.TextWrapped = true
+
+RemoveSaveCooldown.Name = "RemoveSaveCooldown"
+RemoveSaveCooldown.Parent = MainFrame
+RemoveSaveCooldown.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+RemoveSaveCooldown.BorderColor3 = Color3.new(0, 0, 0)
+RemoveSaveCooldown.Position = UDim2.new(0, 0, 0.601731598, 0)
+RemoveSaveCooldown.Size = UDim2.new(0, 423, 0, 41)
+RemoveSaveCooldown.Font = Enum.Font.Code
+RemoveSaveCooldown.Text = "Remove Save Cooldown"
+RemoveSaveCooldown.TextColor3 = Color3.new(1, 1, 1)
+RemoveSaveCooldown.TextScaled = true
+RemoveSaveCooldown.TextSize = 14
+RemoveSaveCooldown.TextWrapped = true
 
 ChatHackFrame.Name = "ChatHackFrame"
 ChatHackFrame.Parent = PokemonHaxlol
@@ -507,7 +521,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_YOHU74_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_HXPD72_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -644,6 +658,15 @@ function SCRIPT_YOHU74_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	game.Players.PlayerAdded:connect(haxpokemon)
 	end
 	end)
+	MainFrame.RemoveSaveCooldown.MouseButton1Click:connect(function()
+	local savepath = game.Players.LocalPlayers.PlayerGui.Main.Menu.Save
+	savepath.Visible = true
+	Changed(savepath, "Visible", function(v)
+	if v == false then
+	savepath.Visible = true
+	end
+	end)
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_YOHU74_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_HXPD72_FAKESCRIPT))
