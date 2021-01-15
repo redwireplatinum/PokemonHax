@@ -267,6 +267,7 @@ message.BorderColor3 = Color3.new(0, 0, 0)
 message.Position = UDim2.new(0, 0, 0.482315063, 0)
 message.Size = UDim2.new(0, 352, 0, 116)
 message.Font = Enum.Font.Code
+message.MultiLine = true
 message.PlaceholderColor3 = Color3.new(1, 1, 1)
 message.PlaceholderText = "Your message here"
 message.Text = ""
@@ -535,7 +536,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_UBEA73_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_LTDQ81_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -693,4 +694,4 @@ function SCRIPT_UBEA73_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_UBEA73_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_LTDQ81_FAKESCRIPT))
