@@ -521,7 +521,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_HXPD72_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_YHME81_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -659,7 +659,7 @@ function SCRIPT_HXPD72_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end
 	end)
 	MainFrame.RemoveSaveCooldown.MouseButton1Click:connect(function()
-	local savepath = game.Players.LocalPlayers.PlayerGui.Main.Menu.Save
+	local savepath = game.Players.LocalPlayer.PlayerGui.Main.Menu.Save
 	savepath.Visible = true
 	Changed(savepath, "Visible", function(v)
 	if v == false then
@@ -669,4 +669,4 @@ function SCRIPT_HXPD72_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_HXPD72_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_YHME81_FAKESCRIPT))
