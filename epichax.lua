@@ -9,6 +9,7 @@ local StatChanger = Instance.new("TextButton")
 local Pokeballhack = Instance.new("TextButton")
 local ChatEXPHaxx = Instance.new("TextButton")
 local RemoveSaveCooldown = Instance.new("TextButton")
+local Fillpokedex = Instance.new("TextButton")
 local ChatHackFrame = Instance.new("Frame")
 local Title_2 = Instance.new("TextLabel")
 local chatcolor = Instance.new("TextLabel")
@@ -119,13 +120,26 @@ RemoveSaveCooldown.Parent = MainFrame
 RemoveSaveCooldown.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 RemoveSaveCooldown.BorderColor3 = Color3.new(0, 0, 0)
 RemoveSaveCooldown.Position = UDim2.new(0, 0, 0.601731598, 0)
-RemoveSaveCooldown.Size = UDim2.new(0, 423, 0, 41)
+RemoveSaveCooldown.Size = UDim2.new(0, 211, 0, 41)
 RemoveSaveCooldown.Font = Enum.Font.Code
 RemoveSaveCooldown.Text = "Remove Save Cooldown"
 RemoveSaveCooldown.TextColor3 = Color3.new(1, 1, 1)
 RemoveSaveCooldown.TextScaled = true
 RemoveSaveCooldown.TextSize = 14
 RemoveSaveCooldown.TextWrapped = true
+
+Fillpokedex.Name = "Fillpokedex"
+Fillpokedex.Parent = MainFrame
+Fillpokedex.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+Fillpokedex.BorderColor3 = Color3.new(0, 0, 0)
+Fillpokedex.Position = UDim2.new(0.50118202, 0, 0.601731539, 0)
+Fillpokedex.Size = UDim2.new(0, 211, 0, 41)
+Fillpokedex.Font = Enum.Font.Code
+Fillpokedex.Text = "Fill Pokedex"
+Fillpokedex.TextColor3 = Color3.new(1, 1, 1)
+Fillpokedex.TextScaled = true
+Fillpokedex.TextSize = 14
+Fillpokedex.TextWrapped = true
 
 ChatHackFrame.Name = "ChatHackFrame"
 ChatHackFrame.Parent = PokemonHaxlol
@@ -521,7 +535,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_FJHI71_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_UBEA73_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -671,6 +685,12 @@ function SCRIPT_FJHI71_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	Title = "Chat troll";
 	Text = "I have to add 'has beaten' just for the text to show on chat, sorry lmao";
 	})
+	MainFrame.Fillpokedex.MouseButton1Click:connect(function()
+	for i,v in pairs(require(game.ReplicatedStorage.Information.Pokemon)) do
+		game:GetService("ReplicatedStorage").REvents.Pokemon.createPokedex:FireServer(i)
+	    game:GetService("ReplicatedStorage").REvents.Pokemon.caughtPokedex:FireServer(i)
+	end
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_FJHI71_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_UBEA73_FAKESCRIPT))
