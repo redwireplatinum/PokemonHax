@@ -10,6 +10,7 @@ local Pokeballhack = Instance.new("TextButton")
 local ChatEXPHaxx = Instance.new("TextButton")
 local RemoveSaveCooldown = Instance.new("TextButton")
 local Fillpokedex = Instance.new("TextButton")
+local X = Instance.new("TextButton")
 local ChatHackFrame = Instance.new("Frame")
 local Title_2 = Instance.new("TextLabel")
 local chatcolor = Instance.new("TextLabel")
@@ -48,14 +49,14 @@ MainFrame.Name = "MainFrame"
 MainFrame.Parent = PokemonHaxlol
 MainFrame.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 MainFrame.BorderColor3 = Color3.new(0, 0, 0)
-MainFrame.Position = UDim2.new(0.264275253, 0, 0.140625, 0)
+MainFrame.Position = UDim2.new(0.334553421, 0, 0.0885416716, 0)
 MainFrame.Size = UDim2.new(0, 423, 0, 231)
 
 Title.Name = "Title"
 Title.Parent = MainFrame
 Title.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 Title.BorderColor3 = Color3.new(0, 0, 0)
-Title.Size = UDim2.new(0, 423, 0, 57)
+Title.Size = UDim2.new(0, 366, 0, 57)
 Title.Font = Enum.Font.Code
 Title.Text = "Different game, same terrible anti-cheat lmao"
 Title.TextColor3 = Color3.new(1, 1, 1)
@@ -108,6 +109,7 @@ ChatEXPHaxx.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
 ChatEXPHaxx.BorderColor3 = Color3.new(0, 0, 0)
 ChatEXPHaxx.Position = UDim2.new(0.5, 0, 0.248549789, 0)
 ChatEXPHaxx.Size = UDim2.new(0, 211, 0, 41)
+ChatEXPHaxx.ZIndex = 2
 ChatEXPHaxx.Font = Enum.Font.Code
 ChatEXPHaxx.Text = "EXP Chat Hack"
 ChatEXPHaxx.TextColor3 = Color3.new(1, 1, 1)
@@ -140,6 +142,19 @@ Fillpokedex.TextColor3 = Color3.new(1, 1, 1)
 Fillpokedex.TextScaled = true
 Fillpokedex.TextSize = 14
 Fillpokedex.TextWrapped = true
+
+X.Name = "X"
+X.Parent = MainFrame
+X.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+X.BorderColor3 = Color3.new(0, 0, 0)
+X.Position = UDim2.new(0.865248203, 0, -3.30276819e-08, 0)
+X.Size = UDim2.new(0, 57, 0, 57)
+X.Font = Enum.Font.Code
+X.Text = "×"
+X.TextColor3 = Color3.new(1, 0, 0)
+X.TextScaled = true
+X.TextSize = 14
+X.TextWrapped = true
 
 ChatHackFrame.Name = "ChatHackFrame"
 ChatHackFrame.Parent = PokemonHaxlol
@@ -536,7 +551,7 @@ Hide.TextScaled = true
 Hide.TextSize = 14
 Hide.TextWrapped = true
 -- Scripts:
-function SCRIPT_LTDQ81_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
+function SCRIPT_OEAG83_FAKESCRIPT() -- PokemonHaxlol.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = PokemonHaxlol
 	for i,v in pairs(script.Parent:GetChildren()) do
@@ -692,6 +707,9 @@ function SCRIPT_LTDQ81_FAKESCRIPT() -- PokemonHaxlol.LocalScript
 	    game:GetService("ReplicatedStorage").REvents.Pokemon.caughtPokedex:FireServer(i)
 	end
 	end)
+	MainFrame.X.MouseButton1Click:connect(function()
+	MainFrame.Parent:Destroy()
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_LTDQ81_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_OEAG83_FAKESCRIPT))
